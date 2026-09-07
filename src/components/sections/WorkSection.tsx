@@ -72,7 +72,7 @@ export default function WorkSection() {
     <section id="work" className="flex flex-col pt-20 md:pt-32 pb-12 md:pb-20 relative">
       <div>
         <h2 className="h1 font-bold mb-4 text-[var(--foreground)]">Selected Work<span className="text-[var(--accent)]">.</span></h2>
-        <p className="font-mono mb-10 md:mb-20 uppercase tracking-[0.05em] opacity-80 text-base md:text-lg text-[var(--accent)]">Showcase of projects, pipelines, and models<span className="text-[var(--foreground)]">.</span></p>
+        <p className="font-mono mb-10 md:mb-20 uppercase tracking-[0.05em] opacity-80 text-sm sm:text-base md:text-lg text-[var(--accent)]">Showcase of projects, pipelines, and models<span className="text-[var(--foreground)]">.</span></p>
       </div>
 
       <div className="flex flex-col border-t border-[var(--foreground)]/10">
@@ -90,7 +90,7 @@ export default function WorkSection() {
                 {project.name}
               </h3>
               {project.desc && (
-                <p className="text-base md:text-lg opacity-60 leading-relaxed z-10">
+                <p className="text-sm sm:text-base md:text-lg opacity-60 leading-relaxed z-10">
                   {project.desc}
                 </p>
               )}

@@ -14,7 +14,7 @@ export default function AboutMeSection() {
         <h2 className="h1 font-bold mb-4 text-[var(--foreground)]">
           About Me<span className="text-[var(--accent)]">.</span>
         </h2>
-        <p className="font-mono mb-10 md:mb-20 uppercase tracking-[0.05em] opacity-80 text-base md:text-lg text-[var(--accent)]">
+        <p className="font-mono mb-10 md:mb-20 uppercase tracking-[0.05em] opacity-80 text-sm sm:text-base md:text-lg text-[var(--accent)]">
           A little bit more about me<span className="text-[var(--foreground)]">.</span>
         </p>
       </div>
@@ -36,7 +36,7 @@ export default function AboutMeSection() {
               <span className="mono-label text-[var(--accent)] w-8 opacity-60 shrink-0">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <p className="text-lg md:text-xl leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl leading-relaxed">
                 {fact}
               </p>
             </motion.div>

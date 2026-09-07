@@ -102,7 +102,7 @@ export default function InfoSection() {
     <section id="info" className="flex flex-col pt-20 md:pt-32 pb-12 md:pb-20">
       <div>
         <h2 className="h1 font-bold mb-4 text-[var(--foreground)]">Info<span className="text-[var(--accent)]">.</span></h2>
-        <p className="font-mono mb-10 md:mb-20 uppercase tracking-[0.05em] opacity-80 text-base md:text-lg text-[var(--accent)]">Background, skills, and tools<span className="text-[var(--foreground)]">.</span></p>
+        <p className="font-mono mb-10 md:mb-20 uppercase tracking-[0.05em] opacity-80 text-sm sm:text-base md:text-lg text-[var(--accent)]">Background, skills, and tools<span className="text-[var(--foreground)]">.</span></p>
       </div>
 
       <motion.div
@@ -129,12 +129,12 @@ export default function InfoSection() {
           >
             {/* A div, not a heading tag: the global h1-h3 size rules are unlayered
                 and would override the Tailwind text sizes here. */}
-            <div className="text-lg md:text-xl font-medium md:pr-6">{cat.category}</div>
+            <div className="text-base sm:text-lg md:text-xl font-medium md:pr-6">{cat.category}</div>
             <div className="flex flex-wrap gap-2 md:gap-3">
               {cat.tools.map((tool) => (
                 <span
                   key={tool.name}
-                  className="inline-flex items-center gap-2 rounded-full border border-[var(--foreground)]/15 px-3 py-1.5 text-sm opacity-80 hover:opacity-100 hover:border-[var(--accent)]/50 hover:text-[var(--accent)] transition-colors duration-300"
+                  className="inline-flex items-center gap-2 rounded-full border border-[var(--foreground)]/15 px-3 py-1.5 text-xs sm:text-sm opacity-80 hover:opacity-100 hover:border-[var(--accent)]/50 hover:text-[var(--accent)] transition-colors duration-300"
                 >
                   {tool.Icons ? (
                     <span className="flex items-center gap-1">

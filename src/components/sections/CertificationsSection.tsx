@@ -264,7 +264,7 @@ export default function CertificationsSection() {
         <div className="px-6 md:px-10 mb-10 max-w-4xl flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
             <h2 className="h2 font-bold mb-4 text-[var(--foreground)]">Certifications<span className="text-[var(--accent)]">.</span></h2>
-            <p className="font-mono text-[var(--accent)] uppercase tracking-[0.05em] opacity-80 text-base md:text-lg">Continuous learning and professional growth<span className="text-[var(--foreground)]">.</span></p>
+            <p className="font-mono text-[var(--accent)] uppercase tracking-[0.05em] opacity-80 text-sm sm:text-base md:text-lg">Continuous learning and professional growth<span className="text-[var(--foreground)]">.</span></p>
           </div>
           
           <button 

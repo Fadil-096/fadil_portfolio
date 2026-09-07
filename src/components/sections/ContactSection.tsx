@@ -5,11 +5,11 @@ export default function ContactSection() {
     <section id="contact" className="flex flex-col pt-16 min-h-[50vh] justify-center pb-16 relative">
       <div>
         <h2 className="h1 font-bold mb-4 text-[var(--foreground)]">Contact<span className="text-[var(--accent)]">.</span></h2>
-        <p className="font-mono mb-10 uppercase tracking-[0.05em] opacity-80 text-base md:text-lg text-[var(--accent)]">Let&apos;s build something together<span className="text-[var(--foreground)]">.</span></p>
+        <p className="font-mono mb-10 uppercase tracking-[0.05em] opacity-80 text-sm sm:text-base md:text-lg text-[var(--accent)]">Let&apos;s build something together<span className="text-[var(--foreground)]">.</span></p>
       </div>
       
       <div className="max-w-3xl flex flex-col gap-6">
-        <p className="text-2xl md:text-4xl leading-relaxed mb-6 font-medium">
+        <p className="text-xl sm:text-2xl md:text-4xl leading-relaxed mb-6 font-medium">
           Looking for an internship, apprenticeship, or full-time role starting immediately. Motivated to join a data-driven team.
         </p>
         <p className="mono-label opacity-80 mb-10">
@@ -51,11 +51,11 @@ export default function ContactSection() {
       <div className="mt-8 flex flex-col sm:flex-row gap-10">
         <div className="flex flex-col gap-1">
           <span className="mono-label text-[var(--accent)] opacity-70">Current Location</span>
-          <span className="text-lg md:text-xl">Bengaluru, India</span>
+          <span className="text-base sm:text-lg md:text-xl">Bengaluru, India</span>
         </div>
         <div className="flex flex-col gap-1">
           <span className="mono-label text-[var(--accent)] opacity-70">Permanent Address</span>
-          <span className="text-lg md:text-xl">Chennai, India</span>
+          <span className="text-base sm:text-lg md:text-xl">Chennai, India</span>
         </div>
       </div>
       <p className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--accent)]/50 bg-[var(--accent)]/10 text-[var(--accent)] text-sm font-semibold tracking-wide w-fit transition-all duration-300 hover:bg-[var(--accent)]/20 hover:border-[var(--accent)] hover:scale-105 hover:shadow-[0_0_15px_rgba(229,9,20,0.3)]">✦ Ready to relocate anywhere</p>

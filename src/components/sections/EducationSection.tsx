@@ -30,7 +30,7 @@ export default function EducationSection() {
         <h2 className="h1 font-bold mb-4 text-[var(--foreground)]">
           Education<span className="text-[var(--accent)]">.</span>
         </h2>
-        <p className="font-mono mb-10 md:mb-20 uppercase tracking-[0.05em] opacity-80 text-base md:text-lg text-[var(--accent)]">
+        <p className="font-mono mb-10 md:mb-20 uppercase tracking-[0.05em] opacity-80 text-sm sm:text-base md:text-lg text-[var(--accent)]">
           Academic background<span className="text-[var(--foreground)]">.</span>
         </p>
       </div>
@@ -63,7 +63,7 @@ export default function EducationSection() {
                     {edu.level}
                   </span>
                 </div>
-                <span className="text-lg md:text-xl opacity-80">
+                <span className="text-base sm:text-lg md:text-xl opacity-80">
                   {edu.institution}
                 </span>
                 <span className="mono-label text-[var(--accent)] opacity-70 text-sm">
