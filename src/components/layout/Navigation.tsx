@@ -103,49 +103,50 @@ export default function Navigation() {
     };
   }, []);
 
-  const scaleRaw = useTransform(scrollY, [0, 300], [2.8, 1]);
-  const yRaw = useTransform(scrollY, [0, 300], ["20vh", "0vh"]);
-
-  const scale = isHome ? scaleRaw : 1;
-  const y = isHome ? yRaw : 0;
+  // Zoom progress only; the actual scale/offset live in CSS (.hero-scale) so they
+  // can respond to viewport width without a hydration-unsafe JS check.
+  const heroProgressRaw = useTransform(scrollY, [0, 300], [1, 0]);
+  const heroProgress = isHome ? heroProgressRaw : 0;
 
   return (
-    <nav className="fixed top-0 left-0 w-full py-4 md:py-5 px-6 md:px-10 flex justify-between items-start z-50 pointer-events-none bg-[var(--background)] text-[var(--foreground)]">
-      <motion.div 
-        className="flex flex-col items-start origin-top-left pointer-events-auto"
-        style={{ scale, y }}
+    <nav className="fixed top-0 left-0 w-full py-4 md:py-5 px-4 sm:px-6 md:px-10 flex flex-wrap justify-between items-start gap-y-2 z-50 pointer-events-none bg-[var(--background)] text-[var(--foreground)]">
+      <motion.div
+        className="min-w-0 pointer-events-auto"
+        style={{ "--hero-p": heroProgress } as React.CSSProperties}
       >
-        <Link href="/" className="h3 font-sans font-bold hover-wipe">
-          Fadil Ahmed<span className="text-[var(--accent)]">.</span>
-        </Link>
-        <motion.div 
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: { opacity: 1 },
-            visible: { transition: { staggerChildren: 0.04 } }
-          }}
-          onAnimationComplete={() => setTaglineComplete(true)}
-          className={cn(
-            "flex flex-col items-start mt-0 opacity-80",
-            taglineComplete ? "text-[var(--accent)] transition-colors duration-700" : "text-[var(--foreground)]"
-          )}
-        >
-          <p className="mono-label tracking-widest text-[8px] md:text-[10px] uppercase">
-            {"basically, I make data make sense.".split("").map((char, i) => (
-              <motion.span
-                key={i}
-                className={char === "." ? "text-[var(--foreground)]" : undefined}
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: { opacity: 1, transition: { duration: 0 } }
-                }}
-              >
-                {char}
-              </motion.span>
-            ))}
-          </p>
-        </motion.div>
+        <div className="hero-scale flex flex-col items-start">
+          <Link href="/" className="h3 font-sans font-bold hover-wipe whitespace-nowrap">
+            Fadil Ahmed<span className="text-[var(--accent)]">.</span>
+          </Link>
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 1 },
+              visible: { transition: { staggerChildren: 0.04 } }
+            }}
+            onAnimationComplete={() => setTaglineComplete(true)}
+            className={cn(
+              "flex flex-col items-start mt-0 opacity-80",
+              taglineComplete ? "text-[var(--accent)] transition-colors duration-700" : "text-[var(--foreground)]"
+            )}
+          >
+            <p className="font-mono tracking-widest text-[7px] sm:text-[8px] md:text-[10px] uppercase whitespace-nowrap">
+              {"basically, I make data make sense.".split("").map((char, i) => (
+                <motion.span
+                  key={i}
+                  className={char === "." ? "text-[var(--foreground)]" : undefined}
+                  variants={{
+                    hidden: { opacity: 0 },
+                    visible: { opacity: 1, transition: { duration: 0 } }
+                  }}
+                >
+                  {char}
+                </motion.span>
+              ))}
+            </p>
+          </motion.div>
+        </div>
       </motion.div>
 
       {/* Center Quote (hidden on smaller screens to prevent overlap) */}
@@ -206,7 +207,7 @@ export default function Navigation() {
         </div>
 
         {/* Nav Links Row */}
-        <div className="flex flex-col md:flex-row items-end md:items-center gap-2 md:gap-8">
+        <div className="flex flex-row items-center gap-3 sm:gap-6 md:gap-8">
           {links.map((link) => {
             const isActive = activeSection === link.path;
             return (
@@ -215,15 +216,16 @@ export default function Navigation() {
                 href={link.path}
                 onClick={() => setActiveSection(link.path)}
                 className={cn(
-                  "mono-label uppercase relative block transition-all duration-300",
+                  // py/-my pair grows the touch target without changing layout height
+                  "font-mono uppercase tracking-[0.05em] text-[10px] sm:text-xs md:text-sm relative block py-3 -my-3 transition-all duration-300",
                   isActive ? "text-[var(--accent)] scale-110 opacity-100" : "text-[var(--foreground)] opacity-60 hover:opacity-100"
                 )}
               >
                 {link.name}
                 {/* Animated left-to-right underline */}
-                <span 
+                <span
                   className={cn(
-                    "absolute -bottom-1 left-0 h-[1px] w-full bg-[var(--accent)] origin-left transition-transform duration-300 ease-out",
+                    "absolute bottom-2 left-0 h-[1px] w-full bg-[var(--accent)] origin-left transition-transform duration-300 ease-out",
                     isActive ? "scale-x-100" : "scale-x-0"
                   )}
                 />

@@ -9,12 +9,12 @@ const facts = [
 
 export default function AboutMeSection() {
   return (
-    <section id="about-me" className="flex flex-col pt-32 pb-20">
+    <section id="about-me" className="flex flex-col pt-20 md:pt-32 pb-12 md:pb-20">
       <div>
         <h2 className="h1 font-bold mb-4 text-[var(--foreground)]">
           About Me<span className="text-[var(--accent)]">.</span>
         </h2>
-        <p className="font-mono mb-20 uppercase tracking-[0.05em] opacity-80 text-base md:text-lg text-[var(--accent)]">
+        <p className="font-mono mb-10 md:mb-20 uppercase tracking-[0.05em] opacity-80 text-base md:text-lg text-[var(--accent)]">
           A little bit more about me<span className="text-[var(--foreground)]">.</span>
         </p>
       </div>

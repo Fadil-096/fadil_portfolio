@@ -260,7 +260,7 @@ export default function CertificationsSection() {
 
   return (
     <>
-      <section id="certifications" className="flex flex-col pt-16 pb-12 overflow-hidden w-full relative">
+      <section id="certifications" className="flex flex-col pt-12 md:pt-16 pb-12 overflow-hidden w-full relative">
         <div className="px-6 md:px-10 mb-10 max-w-4xl flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
             <h2 className="h2 font-bold mb-4 text-[var(--foreground)]">Certifications<span className="text-[var(--accent)]">.</span></h2>

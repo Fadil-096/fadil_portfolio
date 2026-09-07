@@ -99,10 +99,10 @@ function Monogram({ label }: { label: string }) {
 
 export default function InfoSection() {
   return (
-    <section id="info" className="flex flex-col pt-32 pb-20">
+    <section id="info" className="flex flex-col pt-20 md:pt-32 pb-12 md:pb-20">
       <div>
         <h2 className="h1 font-bold mb-4 text-[var(--foreground)]">Info<span className="text-[var(--accent)]">.</span></h2>
-        <p className="font-mono mb-20 uppercase tracking-[0.05em] opacity-80 text-base md:text-lg text-[var(--accent)]">Background, skills, and tools<span className="text-[var(--foreground)]">.</span></p>
+        <p className="font-mono mb-10 md:mb-20 uppercase tracking-[0.05em] opacity-80 text-base md:text-lg text-[var(--accent)]">Background, skills, and tools<span className="text-[var(--foreground)]">.</span></p>
       </div>
 
       <motion.div
@@ -110,50 +110,47 @@ export default function InfoSection() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="overflow-x-auto -mx-6 px-6 md:mx-0 md:px-0"
+        className="w-full"
       >
-        <table className="w-full min-w-[720px] border-collapse">
-          <thead>
-            <tr className="border-b border-[var(--foreground)]/20">
-              <th className="font-mono text-base md:text-lg text-left uppercase tracking-widest text-[var(--accent)] opacity-80 pb-4 pr-6 font-normal w-[280px]">
-                Category
-              </th>
-              <th className="font-mono text-base md:text-lg text-left uppercase tracking-widest text-[var(--accent)] opacity-80 pb-4 font-normal">
-                Tools
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {CATEGORIES.map((cat) => (
-              <tr key={cat.category} className="border-b border-[var(--foreground)]/10">
-                <td className="py-6 pr-6 align-top text-lg md:text-xl font-medium">
-                  {cat.category}
-                </td>
-                <td className="py-6 align-top">
-                  <div className="flex flex-wrap gap-3">
-                    {cat.tools.map((tool) => (
-                      <span
-                        key={tool.name}
-                        className="inline-flex items-center gap-2 rounded-full border border-[var(--foreground)]/15 px-3 py-1.5 text-sm opacity-80 hover:opacity-100 hover:border-[var(--accent)]/50 hover:text-[var(--accent)] transition-colors duration-300"
-                      >
-                        {tool.Icons ? (
-                          <span className="flex items-center gap-1">
-                            {tool.Icons.map((Icon, i) => (
-                              <Icon key={i} size={16} className="shrink-0" />
-                            ))}
-                          </span>
-                        ) : (
-                          <Monogram label={tool.mono!} />
-                        )}
-                        {tool.name}
-                      </span>
-                    ))}
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        {/* Column headers only make sense once the two columns sit side by side */}
+        <div className="hidden md:grid md:grid-cols-[280px_1fr] border-b border-[var(--foreground)]/20 pb-4">
+          <span className="font-mono text-base md:text-lg uppercase tracking-widest text-[var(--accent)] opacity-80 pr-6">
+            Category
+          </span>
+          <span className="font-mono text-base md:text-lg uppercase tracking-widest text-[var(--accent)] opacity-80">
+            Tools
+          </span>
+        </div>
+
+        {CATEGORIES.map((cat) => (
+          <div
+            key={cat.category}
+            className="grid grid-cols-1 md:grid-cols-[280px_1fr] items-start gap-3 md:gap-0 border-b border-[var(--foreground)]/10 py-5 md:py-6"
+          >
+            {/* A div, not a heading tag: the global h1-h3 size rules are unlayered
+                and would override the Tailwind text sizes here. */}
+            <div className="text-lg md:text-xl font-medium md:pr-6">{cat.category}</div>
+            <div className="flex flex-wrap gap-2 md:gap-3">
+              {cat.tools.map((tool) => (
+                <span
+                  key={tool.name}
+                  className="inline-flex items-center gap-2 rounded-full border border-[var(--foreground)]/15 px-3 py-1.5 text-sm opacity-80 hover:opacity-100 hover:border-[var(--accent)]/50 hover:text-[var(--accent)] transition-colors duration-300"
+                >
+                  {tool.Icons ? (
+                    <span className="flex items-center gap-1">
+                      {tool.Icons.map((Icon, i) => (
+                        <Icon key={i} size={16} className="shrink-0" />
+                      ))}
+                    </span>
+                  ) : (
+                    <Monogram label={tool.mono!} />
+                  )}
+                  {tool.name}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
       </motion.div>
     </section>
   );

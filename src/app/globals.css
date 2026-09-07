@@ -25,6 +25,47 @@ body {
   overflow-x: hidden;
 }
 
+/* Anchor targets sit below the fixed nav instead of underneath it */
+section[id] {
+  scroll-margin-top: 7rem;
+}
+
+@media (min-width: 768px) {
+  section[id] {
+    scroll-margin-top: 9rem;
+  }
+}
+
+/*
+ * Hero name zoom. Navigation drives --hero-p (1 at the top of the page -> 0 once
+ * scrolled past); the multiplier is set here so the zoom can shrink on narrow
+ * screens without a JS viewport check, which would flash the desktop size on
+ * first paint before hydration corrects it.
+ */
+.hero-scale {
+  transform-origin: top left;
+  /* Below ~380px the zoomed name would collide with the nav links, so barely zoom */
+  transform: translateY(calc(var(--hero-p, 1) * 8vh)) scale(calc(1 + var(--hero-p, 1) * 0.12));
+}
+
+@media (min-width: 380px) {
+  .hero-scale {
+    transform: translateY(calc(var(--hero-p, 1) * 10vh)) scale(calc(1 + var(--hero-p, 1) * 0.45));
+  }
+}
+
+@media (min-width: 640px) {
+  .hero-scale {
+    transform: translateY(calc(var(--hero-p, 1) * 16vh)) scale(calc(1 + var(--hero-p, 1) * 1));
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-scale {
+    transform: translateY(calc(var(--hero-p, 1) * 20vh)) scale(calc(1 + var(--hero-p, 1) * 1.8));
+  }
+}
+
 /* Noise texture overlay */
 .noise-overlay {
   position: fixed;

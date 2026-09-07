@@ -109,7 +109,7 @@ function AchievementImageCarousel({ images, alt }: { images: string[]; alt: stri
 
 export default function AchievementsSection() {
   return (
-    <section id="achievements" className="flex flex-col pt-16 pb-32 overflow-hidden w-full relative">
+    <section id="achievements" className="flex flex-col pt-12 md:pt-16 pb-20 md:pb-32 overflow-hidden w-full relative">
       <div className="px-6 md:px-10 mb-10 max-w-4xl">
         <h2 className="h2 font-bold mb-4 text-[var(--foreground)]">Achievements & Leadership<span className="text-[var(--accent)]">.</span></h2>
         <p className="font-mono text-[var(--accent)] uppercase tracking-[0.05em] opacity-80 text-base md:text-lg">Recognition, community, and impact<span className="text-[var(--foreground)]">.</span></p>

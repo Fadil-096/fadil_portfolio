@@ -12,11 +12,12 @@ export default function Home() {
   return (
     <main className="flex-1 flex flex-col relative">
       {/* 5.1 Hero */}
-      <section id="home" className="pt-0 pb-[10vh] flex flex-col md:flex-row justify-between items-start gap-8 lg:gap-16 mt-10">
-        <div className="flex flex-col gap-6 flex-1 w-full pt-[15vh]">
-          {/* The main heading is rendered and animated by Navigation.tsx */}
-          <div className="h-[12vh] w-full" aria-hidden="true"></div>
-          <p className="text-xl md:text-2xl leading-relaxed">
+      <section id="home" className="pt-0 pb-[10vh] flex flex-col md:flex-row justify-between items-start gap-8 lg:gap-16 mt-4 md:mt-10">
+        <div className="flex flex-col gap-6 flex-1 w-full pt-[4vh] md:pt-[15vh]">
+          {/* Reserves the space the Navigation-rendered name zooms into; the zoom is
+              much smaller on phones, so the spacer shrinks to match. */}
+          <div className="h-[3vh] md:h-[12vh] w-full" aria-hidden="true"></div>
+          <p className="text-lg sm:text-xl md:text-2xl leading-relaxed">
             I&apos;m a Computer Science undergraduate at Manipal Institute of Technology, Bengaluru, specializing in data analytics, machine learning, and statistical analysis. I&apos;m passionate about transforming raw data into meaningful, actionable insights that drive informed decision-making. With hands-on experience in data visualization, predictive modeling, and research-oriented problem solving, I bring a data-driven approach to every challenge I take on.
           </p>
           
