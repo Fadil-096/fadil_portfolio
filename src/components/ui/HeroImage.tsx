@@ -50,14 +50,39 @@ export default function HeroImage() {
         }}
       >
         {/* Base Image with Grayscale and Contrast */}
-        <Image 
-          src="/images/Fadil_Ahmed.png" 
-          alt="Fadil Ahmed" 
-          fill 
+        <Image
+          src="/images/Fadil_Ahmed.png"
+          alt="Fadil Ahmed"
+          fill
           className="object-cover object-top grayscale contrast-125 brightness-110"
           priority
         />
-        
+
+        {/* Glitch: two offset channel-shifted copies that burst every 3s (see globals.css) */}
+        <Image
+          src="/images/Fadil_Ahmed.png"
+          alt=""
+          aria-hidden
+          fill
+          className="glitch-red object-cover object-top pointer-events-none"
+        />
+        <Image
+          src="/images/Fadil_Ahmed.png"
+          alt=""
+          aria-hidden
+          fill
+          className="glitch-cyan object-cover object-top pointer-events-none"
+        />
+
+        {/* Scanline band that sweeps through during the burst */}
+        <div
+          className="glitch-scan absolute inset-x-0 h-[12%] pointer-events-none mix-blend-screen"
+          style={{
+            background:
+              "linear-gradient(to bottom, transparent, rgba(255,255,255,0.16) 45%, rgba(229,9,20,0.22) 55%, transparent)"
+          }}
+        ></div>
+
         {/* Spotlight on face/eyes to bring out light and detail */}
         <div 
           className="absolute inset-0 pointer-events-none mix-blend-soft-light opacity-70"
